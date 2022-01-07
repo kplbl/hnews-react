@@ -15,11 +15,7 @@ const PostList = ({ type }) => {
     setLoading(true);
     try {
       let response = await axios.get(`https://hacker-news.firebaseio.com/v0/${type}.json`);
-      let subset = [];
-
-      for (let i = page * 10; i < page * 10 + 10; i++) {
-        subset.push(response.data[i]);
-      }
+      let subset = response.data.slice(page * 10, page * 10 + 10);
 
       subset.forEach(async (id) => {
         response = await axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
@@ -47,13 +43,21 @@ const PostList = ({ type }) => {
       </div>
       <div>
         <button
-          onClick={() => page && setPage(page - 1)}
+          onClick={() => setPage(0)}
           className={`text-lg px-4 py-1 border rounded-sm mr-5 ${page === 0 && 'hidden'}`}
         >
-          prev
+          Top
         </button>
+        <button
+          onClick={() => page && setPage(page - 1)}
+          className={`text-lg px-4 py-1 border rounded-sm  ${page === 0 && 'hidden'}`}
+        >
+          Prev
+        </button>
+        <span className={`text-lg mx-5 ${page === 0 && 'hidden'}`}>{page > 0 && `${page}`}</span>
+
         <button onClick={() => setPage(page + 1)} className="text-lg px-4 py-1 border rounded-sm ">
-          next
+          Next
         </button>
       </div>
     </>
