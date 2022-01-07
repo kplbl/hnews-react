@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Timeago from 'react-timeago';
@@ -77,7 +77,8 @@ function Post({}) {
         {post.text && <div className="text-sm p-1 my-1">{parse(cleanHTML)}</div>}
 
         <div className="text-sm">
-          {post.score} points by {post.by} <Timeago date={post.time * 1000} />
+          {post.score} points by <Link to={`/user/${post.by}`}>{post.by}</Link>{' '}
+          <Timeago date={post.time * 1000} />
           {' | '}
           {post.descendants && <span>{post.descendants} comments</span>}
         </div>
