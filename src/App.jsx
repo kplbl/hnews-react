@@ -6,15 +6,17 @@ import Post from './components/Post';
 
 function App() {
   return (
-    <div className="App container mx-auto">
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<PostList type={'topstories'} />} />
-          <Route path="/new" element={<PostList type={'newstories'} />} />
-          <Route path="/post/:postId" element={<Post />} />
-        </Routes>
-      </Router>
+    <div className="App h-full w-full">
+      <div className="container mx-auto">
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<PostList type={'topstories'} />} />
+            <Route path="/new" element={<PostList type={'newstories'} />} />
+            <Route path="/post/:postId" element={<Post />} />
+          </Routes>
+        </Router>
+      </div>
     </div>
   );
 }
