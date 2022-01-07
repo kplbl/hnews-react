@@ -33,17 +33,30 @@ const PostList = ({ type }) => {
 
   useEffect(() => {
     getPosts(type, page);
-  }, [type]);
+  }, [type, page]);
 
   if (loading) {
     return <Loading />;
   }
   return (
-    <div>
-      {posts.map((post) => (
-        <PostItem post={post} key={post.id} />
-      ))}
-    </div>
+    <>
+      <div>
+        {posts.map((post) => (
+          <PostItem post={post} key={post.id} />
+        ))}
+      </div>
+      <div>
+        <button
+          onClick={() => page && setPage(page - 1)}
+          className={`text-lg px-4 py-1 border rounded-sm mr-5 ${page === 0 && 'hidden'}`}
+        >
+          prev
+        </button>
+        <button onClick={() => setPage(page + 1)} className="text-lg px-4 py-1 border rounded-sm ">
+          next
+        </button>
+      </div>
+    </>
   );
 };
 
