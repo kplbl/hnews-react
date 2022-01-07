@@ -10,11 +10,11 @@ const Navbar = () => {
         <Link to="/new" className="navbar-link py-2">
           new
         </Link>
-        <Link to="/past" className="navbar-link py-2">
-          past
+        <Link to="/best" className="navbar-link py-2">
+          best
         </Link>
-        <Link to="/newcomments" className="navbar-link py-2">
-          comments
+        <Link to="/top" className="navbar-link py-2">
+          top
         </Link>
         <Link to="/ask" className="navbar-link py-2">
           ask
