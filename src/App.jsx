@@ -4,6 +4,7 @@ import Navbar from './layout/Navbar';
 import PostList from './layout/PostList';
 import Post from './components/Post';
 import Wellno from './components/Wellno';
+import User from './components/User';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
             <Route path="/show" element={<PostList type={'showstories'} />} />
             <Route path="/jobs" element={<PostList type={'jobstories'} />} />
             <Route path="/post/:postId" element={<Post />} />
+            <Route path="/user/:userId" element={<User />} />
+
             <Route path="/submit" element={<Wellno />} />
             <Route path="/login" element={<Wellno />} />
           </Routes>
