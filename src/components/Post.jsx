@@ -2,6 +2,8 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Timeago from 'react-timeago';
+import DOMPurify from 'dompurify';
+import parse from 'html-react-parser';
 import Loading from './Loading';
 import Comment from './Comment';
 
@@ -14,6 +16,7 @@ function Post({}) {
   // const {title, by, id, score, url, time, descendants} = post
 
   let domain = null;
+  let cleanHTML = null;
 
   const getPostAndComments = async (postId) => {
     setPost([]);
@@ -48,6 +51,10 @@ function Post({}) {
     }
   }, []);
 
+  if (post.text) {
+    cleanHTML = DOMPurify.sanitize(post.text, { USE_PROFILES: { html: true } });
+  }
+
   if (loading) {
     return <Loading />;
   }
@@ -67,6 +74,8 @@ function Post({}) {
             </span>
           )}
         </div>
+        {post.text && <div className="text-sm p-1 my-1">{parse(cleanHTML)}</div>}
+
         <div className="text-sm">
           {post.score} points by {post.by} <Timeago date={post.time * 1000} />
           {' | '}
