@@ -33,7 +33,7 @@ const PostList = ({ type }) => {
 
   useEffect(() => {
     getPosts(type, page);
-  }, []);
+  }, [type]);
 
   if (loading) {
     return <Loading />;
