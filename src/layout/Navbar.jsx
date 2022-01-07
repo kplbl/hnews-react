@@ -3,17 +3,35 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between">
       <div className="flex gap-2 py-5">
-        <div className="text-lg mr-5">Hacker News</div>
+        <Link to="/" className="text-lg mr-5">
+          Hacker News
+        </Link>
 
-        <div className="navbar-link">new</div>
-        <div className="navbar-link">past</div>
-        <div className="navbar-link">comments</div>
-        <div className="navbar-link">ask</div>
-        <div className="navbar-link">show</div>
-        <div className="navbar-link">jobs</div>
-        <div className="navbar-link">submit</div>
+        <Link to="/new" className="navbar-link">
+          new
+        </Link>
+        <Link to="/past" className="navbar-link">
+          past
+        </Link>
+        <Link to="/newcomments" className="navbar-link">
+          comments
+        </Link>
+        <Link to="/ask" className="navbar-link">
+          ask
+        </Link>
+        <Link to="/show" className="navbar-link">
+          show
+        </Link>
+        <Link to="/jobs" className="navbar-link">
+          jobs
+        </Link>
+        <Link to="/submit" className="navbar-link">
+          submit
+        </Link>
       </div>
-      <div className="py-5 navbar-link">Login</div>
+      <Link to="/login" className="py-5 navbar-link">
+        Login
+      </Link>
     </nav>
   );
 };
