@@ -44,13 +44,17 @@ const PostList = ({ type }) => {
       <div>
         <button
           onClick={() => setPage(0)}
-          className={`shadow-sm text-lg px-4 py-1 border rounded-sm mr-5 ${page === 0 && 'hidden'}`}
+          className={`shadow-sm text-lg px-4 py-1 border rounded-sm mr-5 hover:bg-slate-50 hover:shadow ${
+            page === 0 && 'hidden'
+          }`}
         >
           Top
         </button>
         <button
           onClick={() => page && setPage(page - 1)}
-          className={`shadow-sm text-lg px-4 py-1 border rounded-sm  ${page === 0 && 'hidden'}`}
+          className={`shadow-sm text-lg px-4 py-1 border rounded-sm hover:bg-slate-50 hover:shadow  ${
+            page === 0 && 'hidden'
+          }`}
         >
           Prev
         </button>
@@ -58,7 +62,7 @@ const PostList = ({ type }) => {
 
         <button
           onClick={() => setPage(page + 1)}
-          className="shadow-sm text-lg px-4 py-1 border rounded-sm "
+          className="shadow-sm text-lg px-4 py-1 border rounded-sm hover:bg-slate-50 hover:shadow"
         >
           {page > 0 ? 'Next' : 'More'}
         </button>
