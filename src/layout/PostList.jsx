@@ -60,7 +60,7 @@ const PostList = ({ type }) => {
           onClick={() => setPage(page + 1)}
           className="shadow-sm text-lg px-4 py-1 border rounded-sm "
         >
-          Next
+          {page > 0 ? 'Next' : 'More'}
         </button>
       </div>
     </>
