@@ -15,7 +15,10 @@ function PostItem({ post }) {
   }
 
   return (
-    <div className="block mb-4 bg-slate-100" onClick={() => navigate(`/post/${id}`)}>
+    <div
+      className="block mb-2 text-gray-700  p-1 hover:bg-slate-200"
+      onClick={() => navigate(`/post/${id}`)}
+    >
       <div>
         <span className="font-semibold mr-5">{title}</span>
         {domain && (
