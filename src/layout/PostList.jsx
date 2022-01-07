@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import PostItem from '../components/PostItem';
+import Loading from '../components/Loading';
 
 // post types: newstories
 
-const PostList = () => {
+const PostList = ({ type }) => {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -31,11 +32,11 @@ const PostList = () => {
   };
 
   useEffect(() => {
-    getPosts('newstories', page);
+    getPosts(type, page);
   }, []);
 
   if (loading) {
-    return <h3>Loading...</h3>;
+    return <Loading />;
   }
   return (
     <div>
