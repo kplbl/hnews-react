@@ -44,19 +44,22 @@ const PostList = ({ type }) => {
       <div>
         <button
           onClick={() => setPage(0)}
-          className={`text-lg px-4 py-1 border rounded-sm mr-5 ${page === 0 && 'hidden'}`}
+          className={`shadow-sm text-lg px-4 py-1 border rounded-sm mr-5 ${page === 0 && 'hidden'}`}
         >
           Top
         </button>
         <button
           onClick={() => page && setPage(page - 1)}
-          className={`text-lg px-4 py-1 border rounded-sm  ${page === 0 && 'hidden'}`}
+          className={`shadow-sm text-lg px-4 py-1 border rounded-sm  ${page === 0 && 'hidden'}`}
         >
           Prev
         </button>
         <span className={`text-lg mx-5 ${page === 0 && 'hidden'}`}>{page > 0 && `${page}`}</span>
 
-        <button onClick={() => setPage(page + 1)} className="text-lg px-4 py-1 border rounded-sm ">
+        <button
+          onClick={() => setPage(page + 1)}
+          className="shadow-sm text-lg px-4 py-1 border rounded-sm "
+        >
           Next
         </button>
       </div>
