@@ -1,5 +1,6 @@
 import Timeago from 'react-timeago';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function PostItem({ post }) {
   const { title, by, id, score, url, time, descendants } = post;
@@ -28,7 +29,7 @@ function PostItem({ post }) {
         )}
       </div>
       <div className="text-sm">
-        {score} points by {by} <Timeago date={time * 1000} />
+        {score} points by <Link to={`/user/${by}`}>{by}</Link> <Timeago date={time * 1000} />
         {' | '}
         {descendants && <span>{descendants} comments</span>}
       </div>
