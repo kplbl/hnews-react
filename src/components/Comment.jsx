@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Loading from './Loading';
 import DOMPurify from 'dompurify';
 import parse from 'html-react-parser';
+import { Link } from 'react-router-dom';
 
 function Comment({ comment, isChild = false }) {
   const [comments, setComments] = useState();
@@ -36,7 +37,7 @@ function Comment({ comment, isChild = false }) {
     <div className={`my-3 ${isChild && 'ml-10'}`}>
       <div className="comment-text mb-1 text-gray-800 text-sm ">{parse(cleanHTML)}</div>
       <div className="text-xs text-gray-500">
-        {by} | <Timeago date={time * 1000} />
+        <Link to={`/user/${by}`}>{by}</Link> | <Timeago date={time * 1000} />
       </div>
       {kids && (
         <>
