@@ -27,7 +27,6 @@ function Comment({ comment, isChild = false }) {
   };
 
   useEffect(() => {
-    console.log('kids ', kids);
     kids && getComments(kids);
   }, []);
 
