@@ -2,6 +2,8 @@ import axios from 'axios';
 import Timeago from 'react-timeago';
 import { useState, useEffect } from 'react';
 import Loading from './Loading';
+import DOMPurify from 'dompurify';
+import parse from 'html-react-parser';
 
 function Comment({ comment, isChild = false }) {
   const [comments, setComments] = useState();
@@ -29,11 +31,13 @@ function Comment({ comment, isChild = false }) {
     kids && getComments(kids);
   }, []);
 
+  const cleanHTML = DOMPurify.sanitize(text, { USE_PROFILES: { html: true } });
+
   return (
     <div className={`my-3 ${isChild && 'ml-10'}`}>
-      <div className="mb-1 text-sm bg-gray-100">{text}</div>
-      <div className="text-xs font-medium">
-        {by} <Timeago date={time * 1000} />
+      <div className="comment-text mb-1 text-gray-800 text-sm ">{parse(cleanHTML)}</div>
+      <div className="text-xs text-gray-500">
+        {by} | <Timeago date={time * 1000} />
       </div>
       {kids && (
         <>
