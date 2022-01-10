@@ -31,11 +31,11 @@ function Comment({ comment, isChild = false }) {
     kids && getComments(kids);
   }, []);
 
-  const cleanHTML = DOMPurify.sanitize(text, { USE_PROFILES: { html: true } });
-
   return (
     <div className={`my-3 ${isChild && 'ml-10'}`}>
-      <div className="comment-text mb-1 text-gray-800 text-sm ">{parse(cleanHTML)}</div>
+      <div className="comment-text mb-1 text-gray-800 text-sm ">
+        {parse(DOMPurify.sanitize(text, { USE_PROFILES: { html: true } }))}
+      </div>
       <div className="text-xs text-gray-500">
         <Link to={`/user/${by}`}>{by}</Link> | <Timeago date={time * 1000} />
       </div>
