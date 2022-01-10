@@ -28,11 +28,19 @@ function Comment({ comment, isChild = false }) {
   };
 
   useEffect(() => {
-    kids && getComments(kids);
+    let isMounted = true;
+
+    if (isMounted) {
+      kids && getComments(kids);
+    }
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
-    <div className={`my-3 ${isChild && 'ml-10'}`}>
+    <div className={`my-3 ${isChild && 'ml-2 md:ml-10'}`}>
       <div className="comment-text mb-1 text-gray-800 text-sm ">
         {parse(DOMPurify.sanitize(text, { USE_PROFILES: { html: true } }))}
       </div>
