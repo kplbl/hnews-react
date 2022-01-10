@@ -5,9 +5,9 @@ import Loading from '../components/Loading';
 
 // post types: newstories
 
-const PostList = ({ type }) => {
+const PostList = ({ type, page, setPage }) => {
   const [posts, setPosts] = useState([]);
-  const [page, setPage] = useState(0);
+
   const [loading, setLoading] = useState(true);
 
   const getPosts = async (type, page) => {
