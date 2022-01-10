@@ -11,7 +11,7 @@ const Navbar = ({ setPage }) => {
         <Link
           to="/"
           onClick={() => {
-            setOpen(!open);
+            setOpen(false);
             setPage(0);
           }}
           className="text-lg font-bold mr-5 py-2 px-2 mb-0 bg-orange-500"
