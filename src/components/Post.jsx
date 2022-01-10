@@ -11,12 +11,11 @@ function Post() {
   const [comments, setComments] = useState(null);
   const [post, setPost] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const [domain, setDomain] = useState(null);
   const { postId } = useParams();
 
   // const {title, by, id, score, url, time, descendants} = post
-
-  let domain = null;
-  let cleanHTML = null;
 
   const getPostAndComments = async (postId) => {
     setPost([]);
@@ -27,6 +26,12 @@ function Post() {
       let response = await axios.get(`https://hacker-news.firebaseio.com/v0/item/${postId}.json`);
 
       setPost(response.data);
+      try {
+        let { hostname } = new URL(response.data.url);
+        setDomain(hostname);
+      } catch (error) {
+        setDomain(null);
+      }
 
       response.data.kids &&
         response.data.kids.forEach(async (comment) => {
@@ -42,18 +47,7 @@ function Post() {
 
   useEffect(() => {
     getPostAndComments(postId);
-
-    try {
-      let { hostname } = new URL(url);
-      domain = hostname;
-    } catch (error) {
-      domain = null;
-    }
   }, []);
-
-  if (post.text) {
-    cleanHTML = DOMPurify.sanitize(post.text, { USE_PROFILES: { html: true } });
-  }
 
   if (loading) {
     return <Loading />;
@@ -74,7 +68,12 @@ function Post() {
             </span>
           )}
         </div>
-        {post.text && <div className="text-sm p-1 my-1">{parse(cleanHTML)}</div>}
+        {/* {post.text && <div className="text-sm p-1 my-1">{parse(cleanHTML)}</div>} */}
+        {post.text && (
+          <div className="text-sm p-1 my-1">
+            {parse(DOMPurify.sanitize(post.text, { USE_PROFILES: { html: true } }))}
+          </div>
+        )}
 
         <div className="text-sm">
           {post.score} points by <Link to={`/user/${post.by}`}>{post.by}</Link>{' '}
