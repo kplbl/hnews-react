@@ -35,7 +35,7 @@ const PostList = ({ type, page, setPage }) => {
     return <Loading />;
   }
   return (
-    <>
+    <div className="flex flex-col-reverse md:flex-col">
       <div>
         {posts.map((post) => (
           <PostItem post={post} key={post.id} />
@@ -67,7 +67,7 @@ const PostList = ({ type, page, setPage }) => {
           {page > 0 ? 'Next' : 'More'}
         </button>
       </div>
-    </>
+    </div>
   );
 };
 
