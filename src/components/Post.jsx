@@ -81,6 +81,7 @@ function Post() {
           {' | '}
           {post.descendants && <span>{post.descendants} comments</span>}
         </div>
+        <hr className="my-4 border-2" />
         <div>
           {comments.map((comment) => (
             <Comment key={comment.id} comment={comment} />
