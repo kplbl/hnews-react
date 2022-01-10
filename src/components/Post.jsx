@@ -7,7 +7,7 @@ import parse from 'html-react-parser';
 import Loading from './Loading';
 import Comment from './Comment';
 
-function Post({}) {
+function Post() {
   const [comments, setComments] = useState(null);
   const [post, setPost] = useState([]);
   const [loading, setLoading] = useState(true);
