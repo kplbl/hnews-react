@@ -16,7 +16,7 @@ function PostItem({ post }) {
   }
 
   return (
-    <div className="block mb-2 text-gray-700  p-1 hover:bg-slate-50 hover:shadow">
+    <div className="block mb-2 text-gray-700 p-1">
       <div>
         <span className="font-semibold mr-5">
           <Link to={`/post/${id}`}>{title}</Link>{' '}
