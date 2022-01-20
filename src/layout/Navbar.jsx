@@ -13,9 +13,9 @@ const Navbar = ({ setPage }) => {
           setOpen(false);
           setPage(0);
         }}
-        className="text-lg font-bold mr-5   px-2 border-b-4 border-b-orange-500 bg-orange-500"
+        className="text-2xl text-orange-700 font-bold mr-5 px-2"
       >
-        Hacker News <span className="italic text-orange-200">lurker</span>
+        HN
       </Link>
 
       <div className="md:hidden mr-4" onClick={() => setOpen(!open)}>
@@ -47,8 +47,8 @@ const Navbar = ({ setPage }) => {
               setOpen(!open);
               setPage(0);
             }}
-            className={`navbar-link mb-0  px-2  border-b-4  ${
-              location.pathname === '/new' ? 'border-b-orange-500' : 'border-b-white'
+            className={`navbar-link mb-0  px-2  ${
+              location.pathname === '/new' ? 'text-orange-700' : ''
             }`}
           >
             new
@@ -59,8 +59,8 @@ const Navbar = ({ setPage }) => {
               setOpen(!open);
               setPage(0);
             }}
-            className={`navbar-link mb-0  px-2 border-b-4  ${
-              location.pathname === '/best' ? 'border-b-orange-500' : 'border-b-white'
+            className={`navbar-link mb-0  px-2  ${
+              location.pathname === '/best' ? 'text-orange-700' : ''
             }`}
           >
             best
@@ -71,8 +71,8 @@ const Navbar = ({ setPage }) => {
               setOpen(!open);
               setPage(0);
             }}
-            className={`navbar-link mb-0  px-2 border-b-4  ${
-              location.pathname === '/top' ? 'border-b-orange-500' : 'border-b-white'
+            className={`navbar-link mb-0  px-2 ${
+              location.pathname === '/top' ? 'text-orange-700' : ''
             }`}
           >
             top
@@ -83,8 +83,8 @@ const Navbar = ({ setPage }) => {
               setOpen(!open);
               setPage(0);
             }}
-            className={`navbar-link mb-0  px-2 border-b-4  ${
-              location.pathname === '/ask' ? 'border-b-orange-500' : 'border-b-white'
+            className={`navbar-link mb-0  px-2  ${
+              location.pathname === '/ask' ? 'text-orange-700' : ''
             }`}
           >
             ask
@@ -95,8 +95,8 @@ const Navbar = ({ setPage }) => {
               setOpen(!open);
               setPage(0);
             }}
-            className={`navbar-link mb-0 px-2 border-b-4  ${
-              location.pathname === '/show' ? 'border-b-orange-500' : 'border-b-white'
+            className={`navbar-link mb-0 px-2  ${
+              location.pathname === '/show' ? 'text-orange-700' : ''
             }`}
           >
             show
@@ -107,8 +107,8 @@ const Navbar = ({ setPage }) => {
               setOpen(!open);
               setPage(0);
             }}
-            className={`navbar-link mb-0  px-2 border-b-4  ${
-              location.pathname === '/jobs' ? 'border-b-orange-500' : 'border-b-white'
+            className={`navbar-link mb-0  px-2 ${
+              location.pathname === '/jobs' ? 'text-orange-700' : ''
             }`}
           >
             jobs
@@ -119,8 +119,8 @@ const Navbar = ({ setPage }) => {
               setOpen(!open);
               setPage(0);
             }}
-            className={`navbar-link mb-0  px-2 border-b-4  ${
-              location.pathname === '/submit' ? 'border-b-orange-500' : 'border-b-white'
+            className={`navbar-link mb-0  px-2 ${
+              location.pathname === '/submit' ? 'text-orange-700' : ''
             }`}
           >
             submit
@@ -129,9 +129,7 @@ const Navbar = ({ setPage }) => {
 
         <Link
           to="/login"
-          className={`navbar-link mb-0 px-2   border-b-4  ${
-            location.pathname === '/login' ? 'border-b-orange-500' : 'border-b-white'
-          }`}
+          className={`navbar-link px-2  ${location.pathname === '/login' ? 'text-orange-700' : ''}`}
         >
           Login
         </Link>
