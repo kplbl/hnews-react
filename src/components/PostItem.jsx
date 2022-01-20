@@ -1,11 +1,8 @@
 import Timeago from 'react-timeago';
-import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 function PostItem({ post }) {
   const { title, by, id, score, url, time, descendants } = post;
-
-  const navigate = useNavigate();
 
   let domain = null;
   try {
