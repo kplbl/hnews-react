@@ -6,9 +6,13 @@ import PostList from './layout/PostList';
 import Post from './components/Post';
 import Wellno from './components/Wellno';
 import User from './components/User';
+import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 
 function App() {
   const [page, setPage] = useState(0);
+
+  useBottomScrollListener(() => setPage((p) => p + 1));
+
   return (
     <div className="App h-full w-full">
       <div className="md:container mx-auto">
