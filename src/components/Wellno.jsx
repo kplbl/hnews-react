@@ -1,7 +1,7 @@
 function Wellno() {
   return (
     <div>
-      <h3>Well, no actually.</h3>
+      <h3>Well, not yet.</h3>
     </div>
   );
 }
