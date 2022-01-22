@@ -25,8 +25,6 @@ const PostList = ({ type, page, setPage }) => {
     }
   };
 
-  useEffect;
-
   useEffect(() => {
     if (page === 0) {
       setPosts([]);
