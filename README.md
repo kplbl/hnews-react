@@ -6,7 +6,7 @@ so that part of functionality is missing
 
 ## Running
 ```
-npm instal
+npm install
 npm run dev
 ```
 Or to build:
