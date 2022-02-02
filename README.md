@@ -1,8 +1,10 @@
 # hnews-react
+![screenshot](screenshot.png)
+
 An alternative HackerNews frontend made with React and Tailwind CSS
 
 Unfortunately, the HackerNews api doesn't support logging in and posting,
-so that part of functionality is missing
+so that part of functionality is missing.
 
 ## Running
 ```
